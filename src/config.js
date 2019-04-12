@@ -1,6 +1,6 @@
 //Api 
-export const API_URI = "http://ec2-54-154-189-244.eu-west-1.compute.amazonaws.com/switchboard/" //trailing slash important
-export const API_AUTHURI = "http://ec2-54-154-189-244.eu-west-1.compute.amazonaws.com/auth/login" 
+export const API_URI = "/api/switchboard"
+export const API_AUTHURI = "/api/account" 
 export const API_HEADERS = {'Accept': 'application/json', 'Content-Type': 'application/json' }
 
 export const EMAILADDRESS_PATTERN = RegExp('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$') //matches standard email address 
@@ -8,7 +8,8 @@ export const PHONENUMBER_PATTERN = RegExp('^0[1-9][0-9]{7,15}') //matches a phon
 export const TEXTLABEL_PATTERN = RegExp('^[a-zA-Z0-9_-]{1,50}$') //matches a text label 1 to 50 chars with no spaces or special chars 
 export const PASSWORD_PATTERN = RegExp('^(?!.*\\s).{5,16}$') //matches a password 8-16 chars without space 
 
-export const BASE_PATHNAME = "/switchboardapp" //the server installation path used
+//export const BASE_PATHNAME = "/switchboardapp" //the server installation path used
+export const BASE_PATHNAME = "" //the server installation path used
 
 export const newSwitchboard =  {
     id : "1", //uid

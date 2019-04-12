@@ -19,10 +19,9 @@ class SwitchboardAPI {
         })
         .then(res => res.json())
         .then(data => {
-            if (typeof data.access_token !== 'undefined' && typeof data.id !== 'undefined')
+            if (typeof data.access_token !== 'undefined' )
                 {
-                sessionStorage.setItem("access_token", data.access_token); //save JWT for authentication 
-                sessionStorage.setItem("user_id", data.id); //save users unique id 
+                sessionStorage.setItem("access_token", data.access_token) //save JWT for authentication 
                 return true
             } else {
                 return false
@@ -32,7 +31,6 @@ class SwitchboardAPI {
 
     logout(){
         sessionStorage.removeItem("access_token"); //clear JWT
-        sessionStorage.removeItem("user_id"); //clear uid 
     }
 
     loggedIn(){
@@ -55,8 +53,8 @@ class SwitchboardAPI {
     }
     
     readTimes() {
-        API_HEADERS.Authorization = `Bearer ${sessionStorage.getItem("access_token")}`
-        return fetch(this.apiURL + sessionStorage.getItem("user_id"), {
+        API_HEADERS.Authorization = sessionStorage.getItem("access_token")
+        return fetch(this.apiURL, {
             headers:  API_HEADERS,          
         })
         .then(resp => resp.json())
@@ -73,8 +71,8 @@ class SwitchboardAPI {
     }
 
     updateTimes(payload) {
-        API_HEADERS.Authorization = `Bearer ${sessionStorage.getItem("access_token")}`
-        return fetch(this.apiURL + sessionStorage.getItem("user_id"), { 
+        API_HEADERS.Authorization = sessionStorage.getItem("access_token")
+        return fetch(this.apiURL, { 
             method: 'PATCH', 
             body: JSON.stringify(payload),
             headers:  API_HEADERS
@@ -94,8 +92,8 @@ class SwitchboardAPI {
 
 
     readOpenMenu(){
-        API_HEADERS.Authorization = `Bearer ${sessionStorage.getItem("access_token")}`
-        return fetch(this.apiURL + sessionStorage.getItem("user_id"), {
+        API_HEADERS.Authorization = sessionStorage.getItem("access_token")
+        return fetch(this.apiURL, {
             headers:  API_HEADERS,          
         })
         .then(resp => resp.json())
@@ -116,8 +114,8 @@ class SwitchboardAPI {
     }
 
     updateOpenMenu(payload){
-        API_HEADERS.Authorization = `Bearer ${sessionStorage.getItem("access_token")}`
-        return fetch(this.apiURL + sessionStorage.getItem("user_id"), { 
+        API_HEADERS.Authorization = sessionStorage.getItem("access_token")
+        return fetch(this.apiURL, { 
             method: 'PATCH', 
             body: JSON.stringify(payload),
             headers:  API_HEADERS
@@ -141,8 +139,8 @@ class SwitchboardAPI {
 
 
     readClosedMenu(){
-        API_HEADERS.Authorization = `Bearer ${sessionStorage.getItem("access_token")}`
-        return fetch(this.apiURL + sessionStorage.getItem("user_id") ,{
+        API_HEADERS.Authorization = sessionStorage.getItem("access_token")
+        return fetch(this.apiURL,{
             headers:  API_HEADERS,          
         })
         .then(resp => resp.json())
@@ -163,8 +161,8 @@ class SwitchboardAPI {
     }
 
     updateClosedMenu(payload){
-        API_HEADERS.Authorization = `Bearer ${sessionStorage.getItem("access_token")}`
-        return fetch(this.apiURL + sessionStorage.getItem("user_id"), { 
+        API_HEADERS.Authorization = sessionStorage.getItem("access_token")
+        return fetch(this.apiURL, { 
             method: 'PATCH', 
             body: JSON.stringify(payload),
             headers:  API_HEADERS
