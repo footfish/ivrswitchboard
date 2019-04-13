@@ -1,6 +1,6 @@
 //Api 
-export const API_URI = "/api/switchboard"
-export const API_AUTHURI = "/api/account" 
+export const API_URI = process.env.REACT_APP_SERVER_URI+"/api/switchboard"
+export const API_AUTHURI = process.env.REACT_APP_SERVER_URI+"/api/account" 
 export const API_HEADERS = {'Accept': 'application/json', 'Content-Type': 'application/json' }
 
 export const EMAILADDRESS_PATTERN = RegExp('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$') //matches standard email address 
