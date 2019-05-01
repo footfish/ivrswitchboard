@@ -33,6 +33,14 @@ class SwitchboardAPI {
         sessionStorage.removeItem("access_token"); //clear JWT
     }
 
+    addAuthQueryString(url){
+        const access_token = sessionStorage.getItem("access_token")
+        if( access_token !== null){
+            return url+"?auth_token="+access_token.slice(7)
+        } else 
+        return url
+    }
+
     loggedIn(){
         const access_token = sessionStorage.getItem("access_token")
         if( access_token !== null){

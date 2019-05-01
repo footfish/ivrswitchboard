@@ -1,6 +1,8 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVolumeUp } from '@fortawesome/free-solid-svg-icons'
+import api from '../lib/SwitchboardAPI'
+
 
 
 const MenuActionGreeting = (props) => {
@@ -15,11 +17,11 @@ const MenuActionGreeting = (props) => {
     <div className="col col-auto">Playback</div>
     <div className="col col-auto" >
         <select name="recordingId" className="form-control" onChange={handleChange} value={props.settings.recordingId}>
-         {props.recordingOptions.map( (recording, idx) => <option key={idx} value={idx} >{recording.label}</option>)}
+         {props.recordingOptions.map((recording, idx) => ({ ...recording, idx: idx})).filter( recording => recording.src != null ).map( (recording) => <option key={recording.idx} value={recording.idx} >{recording.label}</option>)} 
         </select>
     </div>
     <div className="col col-auto">
-            <audio ref={audioTag} id="PlaybackPlayer" src={props.recordingOptions[props.settings.recordingId].src} type="audio/mpeg" ></audio>
+            <audio ref={audioTag} id="PlaybackPlayer" src={api.addAuthQueryString(props.recordingOptions[props.settings.recordingId].src)} type="audio/mpeg" >Here</audio>
             <button  type="button" className="btn btn-light btn-sm rounded-circle" onClick={playSound}>
             <span className="text-primary"><FontAwesomeIcon icon={faVolumeUp} size="lg"/> </span>
             </button>
