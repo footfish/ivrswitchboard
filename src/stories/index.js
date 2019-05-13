@@ -19,6 +19,8 @@ import MenuSectionDigitPressed from '../components/MenuSectionDigitPressed'
 import MenuSectionCallRx from '../components/MenuSectionCallRx'
 import TimesSectionWeek from '../components/TimesSectionWeek';
 import AccountHeader from '../components/AccountHeader'
+import RecordingsPlayback from '../components/RecordingsPlayback'
+import RecordingsEdit from '../components/RecordingsEdit'
 import LoginForm from '../components/LoginForm'
 import { dummySwitchboard as switchboard } from '../config'
 import { BrowserRouter as Router } from "react-router-dom";
@@ -245,4 +247,14 @@ storiesOf('Full Pages', module)
       <TimesSectionOpeningOptions selected="alwaysOpen" onChange={action('changed')} />
       </Container></Router>)
   
+  storiesOf('4. Recordings', module)
+.add("Recordings Playback", () => { 
+  const recordingSettings = { idx:0, label: "Recording 1", src: "http://cdn.mos.musicradar.com/audio/samples/dubstep-demo-loops/DS_Fizzer140C-05.mp3"}
+  return(<Container><RecordingsPlayback recording={recordingSettings} /></Container>)
+    })
+.add("Recordings Edit", () => { 
+  const recordingSettings = { idx:0, label: "Recording 1", src: "http://cdn.mos.musicradar.com/audio/samples/dubstep-demo-loops/DS_Fizzer140C-05.mp3"}
+  return(<Container><RecordingsEdit recording={recordingSettings}  onCancel={action('submitted')}  /></Container>)
+ })
+    
 

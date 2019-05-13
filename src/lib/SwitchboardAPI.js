@@ -1,4 +1,4 @@
-import {API_URI, API_AUTHURI , API_HEADERS} from "../config"
+import {API_URI, API_AUTHURI , API_HEADERS, API_UPLOAD_HEADERS, API_UPLOADURI} from "../config"
 import decode from "jwt-decode";
 
 class SwitchboardAPI {
@@ -59,8 +59,48 @@ class SwitchboardAPI {
             return false
         }
     }
+
+    readRecordings(){
+        API_HEADERS.Authorization = sessionStorage.getItem("access_token")
+        return fetch(this.apiURL, {
+            headers:  API_HEADERS,          
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            let apiResp = {status: "loadError"}
+            if (typeof data.number !== 'undefined' && data.number !== "") {
+                apiResp.recordings = data.recordings
+                apiResp.status = "recordings"          
+                apiResp.number = data.number
+            }
+            return (apiResp)
+        })
+        .catch (() => {
+            return ({status: "loadError"})
+        })
+    }
+
+    uploadRecording(payload) {
+        API_UPLOAD_HEADERS.Authorization = sessionStorage.getItem("access_token")
+        const data = new FormData()
+        data.append('recording', payload.newFile )
+        data.append('recordinglabel', payload.newLabel)
+        return fetch(API_UPLOADURI+"/"+payload.idx, {
+            headers:  API_UPLOAD_HEADERS,  
+            method: 'POST', 
+            body: data        
+        }).then(resp => {
+            if (!resp.ok) throw Error()
+            let apiResp = {status: "success"}
+            return (apiResp)
+        }).catch (() => {
+            return ({status: "error"})
+        })
+}
+
     
     readTimes() {
+
         API_HEADERS.Authorization = sessionStorage.getItem("access_token")
         return fetch(this.apiURL, {
             headers:  API_HEADERS,          

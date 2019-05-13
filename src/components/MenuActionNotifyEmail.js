@@ -18,9 +18,9 @@ export default class MenuActionNotifyEmail extends React.Component {
             <div className="form-row align-items-center pt-1">
             <div className="col col-auto">Send call notification email:</div>
             <div className="col col-auto">
-                        <button onClick={this.handleClick} type="button" className="btn btn-light btn-sm"><span className="text-primary">
+                        <button onClick={this.handleClick} type="button" className="btn btn-link">
                         <FontAwesomeIcon icon={this.props.notifyState ? faCheckSquare : faSquare} size="lg"/>
-                        </span></button> 
+                        </button> 
             </div>
             </div>
             )}

@@ -6,12 +6,12 @@ const MenuActionAddAction = props => {
     return(
             <div className="row">
             <div className="col-1 text-center">
-            <button onClick={props.onAddClick} type="button" className="btn btn-light btn-sm"><span className="text-primary">
+            <button onClick={props.onAddClick} type="button" className="btn btn-link">
             <FontAwesomeIcon icon={faPlusSquare} size="lg"/> 
-            </span></button> 
+            </button> 
             </div>
             <div className="col-7">
-            <button onClick={props.onAddClick} type="button" className="btn btn-light btn-sm"><span className="text-primary">
+            <button onClick={props.onAddClick} type="button" className="btn btn-link"><span className="text-primary">
             Add more...
             </span></button> 
             </div>

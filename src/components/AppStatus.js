@@ -12,7 +12,7 @@ const AppStatus = (props) => {
                          times: {theme: GREEN_ALERT, message: "Configure times when your switchboard routes calls to the open or closed menu."},
                          open:  {theme: GREEN_ALERT, message: "Configure how your switchboard routes calls during open hours"},
                          closed:  {theme: GREEN_ALERT, message: "Configure how your switchboard routes calls during closed hours"},
-                         recordings:  {theme: GREEN_ALERT, message: "Configure how your switchboard routes calls during closed hours"},
+                         recordings:  {theme: GREEN_ALERT, message: "Manage the sound recordings used by your switchboard"},
                          account: {theme: GREEN_ALERT, message:"Manage your account profile."},
                          billing: {theme: GREEN_ALERT, message:"Check your billing statements."},
                          payment: {theme: GREEN_ALERT, message: "Manage your payment Information."},

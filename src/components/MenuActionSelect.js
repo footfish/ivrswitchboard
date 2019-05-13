@@ -78,11 +78,9 @@ const Bullet = ({index, onClick}) => {
         bulletState = 0
         }
             return(
-                <div className="col col-auto">
-                <button onClick={onClick} type="button" className="btn btn-light btn-sm" disabled={bulletState===0 ? true : false}><span className="text-primary">
+                <button onClick={onClick} type="button" className="btn btn-link" disabled={bulletState===0 ? true : false}>
                 <FontAwesomeIcon icon={bulletFont[bulletState]} size="lg"/> 
-                </span></button> 
-                </div>
+                </button> 
             )
 }
 
