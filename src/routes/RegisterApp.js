@@ -38,6 +38,7 @@ componentDidMount() {
             {this.state.status === "registered" &&<div className="alert alert-success" role="alert">Congratulations you have registered - <a href="/login">Login here</a></div>}
             {this.state.status === "e164Loaded" && <RegisterForm onSubmit={this.handlerSubmit} e164list={this.state.e164}/> }
             {this.state.status === "loading" && <div>Loading...</div>}
+            Have an account ? - <a href="/login">Login</a>
             </div></div></div>)
     }
 }
