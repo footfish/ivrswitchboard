@@ -12,6 +12,7 @@ import AccountApp from './routes/AccountApp'
 import PaymentApp from './routes/PaymentApp'
 import BillingApp from './routes/BillingApp'
 import LoginApp from './routes/LoginApp'
+import RegisterApp from './routes/RegisterApp'
 import {BASE_PATHNAME} from "./config"
 
 
@@ -22,6 +23,7 @@ const Routing = () => {
         <div className="container px-0">
         <Switch>
           <Route path="/login/" exact component={LoginApp} />
+          <Route path="/register/" exact component={RegisterApp} />
           <Route path="/account/" exact component={AccountApp} />}
           <Route path="/closed/" exact key={"closedMenu"} component={MenuApp} /> 
           <Route path="/open/" exact key={"openMenu"} component={MenuApp}/> 

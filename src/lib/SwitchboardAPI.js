@@ -4,8 +4,54 @@ import decode from "jwt-decode";
 class SwitchboardAPI {
     
     constructor() {
-        this.apiURL = API_URI 
+        this.apiSwitchboardURL = API_URI + "/switchboard"
     }
+    
+//readE164() gets a random list of 20 available numbers 
+    readE164(cc, ndc) {
+        const e164URL = API_URI + "/e164?cc="+cc+"&ndc="+ndc
+        return fetch(e164URL, {
+            headers:  API_HEADERS,          
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            let apiResp = {status: "loadError"}
+            if (typeof data.e164 !== 'undefined' && data.e164 !== "") {
+                apiResp = {status: "e164Loaded", e164: data.e164}
+            } 
+            return (apiResp)
+        })
+        .catch (() => {
+            return ({status: "loadError"})
+        })
+    }
+    
+    register(first_name, last_name, email, password, mobile_number, switchboard_number)
+    { 
+        const registerURL = API_URI + "/account?action=register"
+        return fetch(registerURL, { //Register account 
+          method: "POST",
+          headers:  API_HEADERS,          
+          body: JSON.stringify({
+            first_name,
+            last_name,  
+            email,
+            password,
+            mobile_number,
+            switchboard_number
+          })
+        })
+        .then(res => res.text())
+        .then(data => {
+            if ( data === 'Created new account' ) {
+                return true
+            } else {
+                return false
+            }
+        })
+        .catch( () => false )
+    }
+    
 
     //Logs into api with email/password. Returns a Promise of true/false on success. JWT access token and uid kept in sessionStorage. 
     login(email, password) { 
@@ -62,7 +108,7 @@ class SwitchboardAPI {
 
     readRecordings(){
         API_HEADERS.Authorization = sessionStorage.getItem("access_token")
-        return fetch(this.apiURL, {
+        return fetch(this.apiSwitchboardURL, {
             headers:  API_HEADERS,          
         })
         .then(resp => resp.json())
@@ -98,11 +144,10 @@ class SwitchboardAPI {
         })
 }
 
-    
-    readTimes() {
 
+    readTimes() {
         API_HEADERS.Authorization = sessionStorage.getItem("access_token")
-        return fetch(this.apiURL, {
+        return fetch(this.apiSwitchboardURL, {
             headers:  API_HEADERS,          
         })
         .then(resp => resp.json())
@@ -120,7 +165,7 @@ class SwitchboardAPI {
 
     updateTimes(payload) {
         API_HEADERS.Authorization = sessionStorage.getItem("access_token")
-        return fetch(this.apiURL, { 
+        return fetch(this.apiSwitchboardURL, { 
             method: 'PATCH', 
             body: JSON.stringify(payload),
             headers:  API_HEADERS
@@ -141,7 +186,7 @@ class SwitchboardAPI {
 
     readOpenMenu(){
         API_HEADERS.Authorization = sessionStorage.getItem("access_token")
-        return fetch(this.apiURL, {
+        return fetch(this.apiSwitchboardURL, {
             headers:  API_HEADERS,          
         })
         .then(resp => resp.json())
@@ -163,7 +208,7 @@ class SwitchboardAPI {
 
     updateOpenMenu(payload){
         API_HEADERS.Authorization = sessionStorage.getItem("access_token")
-        return fetch(this.apiURL, { 
+        return fetch(this.apiSwitchboardURL, { 
             method: 'PATCH', 
             body: JSON.stringify(payload),
             headers:  API_HEADERS
@@ -188,7 +233,7 @@ class SwitchboardAPI {
 
     readClosedMenu(){
         API_HEADERS.Authorization = sessionStorage.getItem("access_token")
-        return fetch(this.apiURL,{
+        return fetch(this.apiSwitchboardURL,{
             headers:  API_HEADERS,          
         })
         .then(resp => resp.json())
@@ -210,7 +255,7 @@ class SwitchboardAPI {
 
     updateClosedMenu(payload){
         API_HEADERS.Authorization = sessionStorage.getItem("access_token")
-        return fetch(this.apiURL, { 
+        return fetch(this.apiSwitchboardURL, { 
             method: 'PATCH', 
             body: JSON.stringify(payload),
             headers:  API_HEADERS

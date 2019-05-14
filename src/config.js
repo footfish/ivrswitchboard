@@ -1,16 +1,24 @@
+//Regional 
+export const CC = "353"
+export const NDC = "818"
+
 //Api 
-export const API_URI = (process.env.REACT_APP_SERVER_URI == null ? "/" : process.env.REACT_APP_SERVER_URI ) +"api/switchboard"
+export const API_URI = (process.env.REACT_APP_SERVER_URI == null ? "/" : process.env.REACT_APP_SERVER_URI ) +"api"
 export const API_AUTHURI = (process.env.REACT_APP_SERVER_URI == null ? "/" :process.env.REACT_APP_SERVER_URI ) + "api/auth" 
 export const API_UPLOADURI = (process.env.REACT_APP_SERVER_URI == null ? "/" :process.env.REACT_APP_SERVER_URI ) + "api/recording" 
 export const API_HEADERS = {'Accept': 'application/json', 'Content-Type': 'application/json' }
 export const API_UPLOAD_HEADERS = {'Accept': 'application/json' }
 
+//regex patterns 
 export const EMAILADDRESS_PATTERN = RegExp('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$') //matches standard email address 
 export const PHONENUMBER_PATTERN = RegExp('^0[1-9][0-9]{7,15}') //matches a phone number 7 to 15 digits with leading zero 
 export const TEXTLABEL_PATTERN = RegExp('^[a-zA-Z0-9_-]{1,50}$') //matches a text label 1 to 50 chars with no spaces or special chars 
 export const PASSWORD_PATTERN = RegExp('^(?!.*\\s).{5,16}$') //matches a password 8-16 chars without space 
 export const RECORDINGFILENAME_PATTERN = RegExp('.+\\.mp3$') //matches a sound file ending .mp3
 export const RECORDINGLABEL_PATTERN = RegExp('^[a-zA-Z0-9_-\\s]{1,50}$') //matches a text label 1 to 50 chars with no special chars 
+export const FIRSTNAME_PATTERN = RegExp('^[a-zA-Z-\\s]{1,38}[a-zA-Z]$') //matches 3 to 40 letter chars with some special chars 
+export const LASTNAME_PATTERN = RegExp('^[a-zA-Z-\\s\']{1,38}[a-zA-Z]$') //matches 3 to 40 letter chars with some special chars 
+export const MOBILENUMBER_PATTERN = RegExp('^08[0-9]{7,15}') //matches a mobile phone number 7 to 15 digits with leading zero 
 
 //export const BASE_PATHNAME = "/switchboardapp" //the server installation path used
 export const BASE_PATHNAME = "" //the server installation path used

@@ -30,6 +30,7 @@ export default class LoginApp extends Component{
             {api.loggedIn() && <Redirect to="/times"/> }                
             {this.state.message !== "" &&<div className="alert alert-danger" role="alert">{this.state.message}</div>}
             <LoginForm onSubmit={this.handlerSubmit}/>
+            Don't have an account ? - <a href="/register">Register</a>
             </div></div></div>)
     }
 }

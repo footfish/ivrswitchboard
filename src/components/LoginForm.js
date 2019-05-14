@@ -21,7 +21,7 @@ export default class LoginForm extends Component{
     <form>
     <div className="form-group">
     <label htmlFor="email">Email address</label>
-    <input type="text" className={validateEmail(this.state.email) ? "form-control" : "form-control is-invalid"} value={this.state.email} name="email" placeholder="Enter you login email address" onChange={e => this.handlerChange(e.target.name, e.target.value)}/>
+    <input type="text" className={validateEmail(this.state.email) ? "form-control" : "form-control is-invalid"} value={this.state.email} name="email" placeholder="Enter your login email address" onChange={e => this.handlerChange(e.target.name, e.target.value)}/>
     </div>
     <div className="form-group">
     <label htmlFor="password">Password</label>
