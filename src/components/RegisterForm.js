@@ -49,7 +49,7 @@ export default class RegisterForm extends Component{
       <label htmlFor="switchboard_number">Switchboard Number</label>
       <select id="switchboard_number" name="switchboardNumber" className={ this.state.switchboardNumber ? "form-control" : "form-control is-invalid"} value={this.state.switchboardNumber}  onChange={e => this.handlerChange(e.target.name, e.target.value)} >
         <option value="" disabled={true}>Choose</option>
-        {this.props.e164list.map( (e164, idx) => <option key={idx} value={"0"+NDC+e164.number}>{"0"+NDC+"-"+e164.number}</option>)}
+        {this.props.e164list.map( (e164, idx) => <option key={idx} value={"+"+CC+"-"+NDC+"-"+e164.number}>{"0"+NDC+"-"+e164.number}</option>)}
       </select>
     </div>
     <div className="form-group">
