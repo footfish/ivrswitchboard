@@ -33,8 +33,10 @@ The objective is to test a suitable front-end SPA replacement for the commercial
 
 ## Installation requirements.
 
-You can view a live demo over at [http://ec2-54-154-189-244.eu-west-1.compute.amazonaws.com/switchboardapp/]
-(email/password - dummy@email.com/dummy )
+You can have a quick demo here (may be slow to spin up) [https://enigmatic-sea-61714.herokuapp.com/](https://enigmatic-sea-61714.herokuapp.com/)
+
+email: dummy@email.com  
+password: dummy 
 
 To get the frontend running locally:
 
