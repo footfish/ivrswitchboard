@@ -100,9 +100,9 @@ API/Model uses sample json below.
                     ]
         }
       },
-      "recordings" : [{ "label": "Recording 1", "src": "http://www.myrecordings.com/greeting.mp3"} , 
-                      { "label": "Recording 2", "src": "http://www.myrecordings.com/open.mp3"},
-                      {"label": "Recording 3", "src": "http://www.myrecordings.com/closed.mp3"}]
+      "recordings" : [{ "label": "Recording 1", "src": "/greeting.mp3"} , 
+                      { "label": "Recording 2", "src": "/open.mp3"},
+                      {"label": "Recording 3", "src": "/closed.mp3"}]
 }
 ```
 
@@ -113,13 +113,13 @@ API/Model uses sample json below.
 ## UI Design.
 
 - **UI Times tab shown with a schedule active**
-![Times](docimg/ui-times.png "UI Times tab with a schedule active")
+![Times](docimg/ui-times.gif "UI Times tab with a schedule active")
 
 - **UI Open tab showing digit '1' active on the menu with various actions**
-![Open](docimg/ui-open.png "UI Open page showing digit '1' tab on the menu with various actions")
+![Open](docimg/ui-open.gif "UI Open page showing digit '1' tab on the menu with various actions")
 
-- **UI Closed tab with edits (requiring 'apply changes' to make live )**
-![Closed](docimg/ui-closed.png "UI Closed tab with edits (requiring 'apply changes' to make live )")
+- **UI Recordings tab**
+![Recordings](docimg/ui-recording.gif "UI Recordings upload/edit")
 
 ## Routing.
 
