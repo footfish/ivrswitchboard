@@ -36,7 +36,11 @@ The objective is to test a suitable front-end SPA replacement for the commercial
 You can have a quick demo here (may be slow to spin up) [https://enigmatic-sea-61714.herokuapp.com/](https://enigmatic-sea-61714.herokuapp.com/)
 
 email: dummy@email.com  
+<<<<<<< HEAD
 password: dummy  
+=======
+password: dummy 
+>>>>>>> 58c7ed847268c3d13518fcb99f2e2ac63e059115
 
 To get the frontend running locally:
 
